@@ -61,9 +61,7 @@ const ProfileScreen = () => {
                 borderRadius: 20,
                 resizeMode: "cover",
               }}
-              source={{
-                uri: "https://images.pexels.com/photos/3944091/pexels-photo-3944091.jpeg?auto=compress&cs=tinysrgb&w=800",
-              }}
+              source={{ uri: userProfile?.images[0].url }}
             />
             <View>
               <Text
