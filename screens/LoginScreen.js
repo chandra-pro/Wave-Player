@@ -27,20 +27,19 @@ const LoginScreen = () => {
   useEffect(() => {
     const checkTokenValidity = async () => {
       const accessToken = await AsyncStorage.getItem("token");
-      const expirationDate = await AsyncStorage.getItem("expirationDate");
+      // const expirationDate = await AsyncStorage.getItem("expirationDate");
       console.log("acess token", accessToken);
-      console.log("expiration date", expirationDate);
+      // console.log("expiration date", expirationDate);
 
-      if (accessToken && expirationDate) {
-        const currentTime = Date.now();
-        if (currentTime < parseInt(expirationDate)) {
-          // here the token is still valid
-          navigation.replace("Main");
-        } else {
-          // token would be expired so we need to remove it from the async storage
-          AsyncStorage.removeItem("token");
-          AsyncStorage.removeItem("expirationDate");
-        }
+      if (accessToken) {
+        // const currentTime = Date.now();
+        // if (currentTime < parseInt(expirationDate)) {
+        // here the token is still valid
+        navigation.replace("Main");
+      } else {
+        // token would be expired so we need to remove it from the async storage
+        AsyncStorage.removeItem("token");
+        // AsyncStorage.removeItem("expirationDate");
       }
     };
 
@@ -74,9 +73,9 @@ const LoginScreen = () => {
       console.log(response);
       console.log("params", access_token);
       // navigation.replace("Main");
-      const expirationDate = new Date(response.expiresIn).getTime();
+      // const expirationDate = new Date(response.expiresIn).getTime();
       AsyncStorage.setItem("token", access_token);
-      AsyncStorage.setItem("expirationDate", expirationDate.toString());
+      // AsyncStorage.setItem("expirationDate", expirationDate.toString());
       navigation.navigate("Main");
     }
   }, [response]);

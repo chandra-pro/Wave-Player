@@ -4,6 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import LoginScreen from "./screens/LoginScreen.js";
+import SongInfoScreen from "./screens/SongInfoScreen";
+import LikedSongsScreen from "./screens/LikedSongsScreen";
 import { Entypo } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
@@ -78,8 +80,16 @@ function Navigation() {
           component={MyTabs}
           options={{ headerShown: false }}
         />
-        {/* <Stack.Screen name="Liked" component={LikedSongsScreen} options={{headerShown:false}}/> 
-                <Stack.Screen name="Info" component={SongInfoScreen} options={{headerShown:false}}/> */}
+        <Stack.Screen
+          name="Liked"
+          component={LikedSongsScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Info"
+          component={SongInfoScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
